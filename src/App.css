@@ -1,0 +1,10 @@
+.theolive-container {
+    height: 340px;
+    width: 600px;
+    position: relative;
+}
+
+.buttons-wrapper {
+    margin-top: 20px;
+    margin-left: 10px;
+}
