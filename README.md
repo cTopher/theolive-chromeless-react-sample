@@ -23,15 +23,13 @@ You can start the application by running `npm run start`. It compiles and runs t
 
 ## Examples
 
-### Creating the [`THEOliveWrapper.tsx`](./src/components/THEOliveWrapper.tsx) component
+### Creating the [`TheolivePlayer.tsx`](./src/components/TheolivePlayer.tsx) component
 
 Be sure to do the following import
 
 ```js
 import { Player } from "@theolive/player/chromeless";
 ```
-
-and don't include `import "@theolive/player/THEOLive.css";` this time, as we don't care about the default THEOlive UI this time.
 
 #### IMPORTANT: update `tsconfig.json` file
 
@@ -45,9 +43,11 @@ When using TypeScript, the import will fail and throw the following error: `"Can
 }
 ```
 
-### Loading our channel inside [`App.tsx`](./src/App.tsx)
+### Loading our channel
 
-Inside `App.tsx`, we'll handle the loading of our channel: once our player is available, we will load our channel by passing the `channelId` which will load the manifest and start playing content
+Inside [`App.tsx`](./src/App.tsx), we pass the `channelId` to the `TheolivePlayer.tsx` component.
+Inside `TheolivePlayer.tsx`, we handle the loading of the channel:
+
 
 ```js
 await player.loadChannel("your-channel-id");
@@ -55,15 +55,10 @@ await player.loadChannel("your-channel-id");
 
 ### Adding our own UI elements
 
-`App.tsx` contains an example where we show two buttons: one to play and one to pause your stream. When clicking on a button, the player can be controlled in order to play/pause to stream.
+`TheolivePlayer.tsx` contains an example where we show two buttons: one to play and one to pause your stream. When clicking on a button, the player can be controlled in order to play/pause to stream.
 
 ```js
-// function called on button click:
-function onPlayClick() {
-    if (player) {
-        player.play();
-    }
-}
+player?.play()
 ```
 
 The full Player API can be found here: https://developers.theo.live/docs/player-api-details.

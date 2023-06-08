@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { requiresServiceWorker } from "@theolive/player/chromeless";
+import {requiresServiceWorker} from "@theolive/player/chromeless";
+import "./index.css";
 
 if (requiresServiceWorker()) {
     navigator.serviceWorker
@@ -23,6 +24,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <App />
+        <App/>
     </React.StrictMode>
 );

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "THEOlive",
+  "name": "Showcasing THEOlive chromeless player with React\n",
   "icons": [
     {
       "src": "favicon.ico",
