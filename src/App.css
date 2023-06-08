@@ -1,10 +1,10 @@
-.theolive-container {
-    height: 340px;
-    width: 600px;
-    position: relative;
+.App {
+    margin: 1rem 2rem;
 }
 
-.buttons-wrapper {
-    margin-top: 20px;
-    margin-left: 10px;
+.App-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }

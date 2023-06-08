@@ -1,50 +1,25 @@
-import { Player } from "@theolive/player/chromeless";
-import { useState } from "react";
+import {useState} from "react";
 import "./App.css";
-import THEOliveWrapper from "./components/THEOliveWrapper";
+import THEOLive from "./components/TheolivePlayer";
+
+// Change these to your own channelIds
+const CHANNEL_1 = "yourFirstChannelId"
+const CHANNEL_2 = "yourSecondChannelId"
 
 function App() {
-    const [player, setPlayer] = useState<Player | null>(null);
-
-    const myChannelId = "production"; // Change this to your own channelId
-
-    async function handlePlayer(newPlayer: Player) {
-        setPlayer(newPlayer);
-        await loadChannel();
-    }
-
-    async function loadChannel() {
-        if (player) {
-            // Load your channel
-            await player.loadChannel(myChannelId);
-        }
-    }
-
-    function onPlay() {
-        if (player) {
-            player.play();
-        }
-    }
-
-    function onPause() {
-        if (player) {
-            player.pause();
-        }
-    }
+    const [channelId, setChannelId] = useState(CHANNEL_1)
 
     return (
         <div className="App">
             <header>
                 <h1>Showcasing THEOlive chromeless player with React</h1>
             </header>
-            <section className="theolive-container">
-                <THEOliveWrapper onPlayer={handlePlayer} />
+            <section className="App-buttons">
+                <button onClick={() => setChannelId(CHANNEL_1)}>channel 1</button>
+                <button onClick={() => setChannelId(CHANNEL_2)}>channel 2</button>
             </section>
-            <section className="buttons-wrapper">
-                <button onClick={onPlay} style={{ marginRight: "20px" }}>
-                    Play stream
-                </button>
-                <button onClick={onPause}>Pause stream</button>
+            <section>
+                <THEOLive channelId={channelId}/>
             </section>
         </div>
     );
