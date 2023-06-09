@@ -10,13 +10,17 @@ export default function TheolivePlayer({channelId}: Props) {
     const [player, setPlayer] = useState<Player | null>(null);
     const onMount = useCallback((node: HTMLElement | null) => {
         if (node) {
+            console.log("creating player")
             setPlayer(new Player(node))
         }
     }, []);
 
     useEffect(() => {
         return () => {
-            player?.destroy()
+            if (player) {
+                console.log("destroying player")
+                player.destroy()
+            }
         }
     }, [player])
 

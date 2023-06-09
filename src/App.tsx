@@ -8,6 +8,7 @@ const CHANNEL_2 = "yourSecondChannelId"
 
 function App() {
     const [channelId, setChannelId] = useState(CHANNEL_1)
+    const [visible, setVisible] = useState(true)
 
     return (
         <div className="App">
@@ -17,9 +18,10 @@ function App() {
             <section className="App-buttons">
                 <button onClick={() => setChannelId(CHANNEL_1)}>channel 1</button>
                 <button onClick={() => setChannelId(CHANNEL_2)}>channel 2</button>
+                <button onClick={() => setVisible(v => !v)}>Toggle</button>
             </section>
             <section>
-                <THEOLive channelId={channelId}/>
+                {visible && <THEOLive channelId={channelId}/>}
             </section>
         </div>
     );
