@@ -3,7 +3,7 @@ import {useCallback, useEffect, useState} from "react";
 import './TheolivePlayer.css'
 
 interface Props {
-    channelId: string;
+    channelId?: string;
 }
 
 export default function TheolivePlayer({channelId}: Props) {
@@ -25,8 +25,14 @@ export default function TheolivePlayer({channelId}: Props) {
     }, [player])
 
     useEffect(() => {
-        console.log("loading channel", channelId)
-        player?.loadChannel(channelId).catch(console.error)
+        if(!player) return
+        if(channelId) {
+            console.log("loading channel", channelId)
+            player.loadChannel(channelId).catch(console.error)
+        } else {
+            console.log("resetting player")
+            player.reset()
+        }
     }, [player, channelId])
 
     return (

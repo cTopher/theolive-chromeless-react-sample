@@ -7,7 +7,7 @@ const CHANNEL_1 = "yourFirstChannelId"
 const CHANNEL_2 = "yourSecondChannelId"
 
 function App() {
-    const [channelId, setChannelId] = useState(CHANNEL_1)
+    const [channelId, setChannelId] = useState<string | undefined>(CHANNEL_1)
     const [visible, setVisible] = useState(true)
 
     return (
@@ -18,6 +18,7 @@ function App() {
             <section className="App-buttons">
                 <button onClick={() => setChannelId(CHANNEL_1)}>channel 1</button>
                 <button onClick={() => setChannelId(CHANNEL_2)}>channel 2</button>
+                <button onClick={() => setChannelId(undefined)}>Reset</button>
                 <button onClick={() => setVisible(v => !v)}>Toggle</button>
             </section>
             <section>
