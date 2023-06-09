@@ -25,6 +25,7 @@ export default function TheolivePlayer({channelId}: Props) {
     }, [player])
 
     useEffect(() => {
+        console.log("loading channel", channelId)
         player?.loadChannel(channelId).catch(console.error)
     }, [player, channelId])
 
